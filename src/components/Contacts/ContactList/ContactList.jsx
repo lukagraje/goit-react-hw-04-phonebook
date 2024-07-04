@@ -6,10 +6,8 @@ const ContactList = ({ contacts, deleteContact }) => {
     <ul>
       {contacts.map((contact) => (
         <ContactItem
-          key={contact.id}
-          id={contact.id}
-          name={contact.name}
-          number={contact.number}
+          key={contact.id}          
+          contact={contact}          
           deleteContact={deleteContact}
         />
       ))}

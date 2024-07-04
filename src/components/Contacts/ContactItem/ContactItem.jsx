@@ -1,19 +1,21 @@
 import PropTypes from "prop-types";
 import css from "./item.module.scss";
 
-const ContactItem = ({ name, number, id, deleteContact }) => {
+const ContactItem = ({ contact, deleteContact }) => {
   return (
-    <li key={id}>
-      {name}: {number}
-      <button className={css.button} onClick={() => deleteContact(id) }>Delete contact</button>
+    <li key={contact.id}>
+      {contact.name}: {contact.number}
+      <button className={css.button} onClick={() => deleteContact(contact.id) }>Delete contact</button>
     </li>
   );
 };
 
 ContactItem.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  contact: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  }).isRequired,
   deleteContact: PropTypes.func.isRequired,
 };
 
